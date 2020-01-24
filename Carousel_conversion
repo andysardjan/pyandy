@@ -1,0 +1,47 @@
+#! python3
+"""
+Author: Andy
+Date: 06-11-2019
+Python 3.7
+Synopsis: Splitting data from caroussel measurements
+"""
+# =============================================================================
+# Settings
+# =============================================================================
+number_of_samples = 5
+
+# you have to export it from Andor Solis
+# Select seperator = space and append aquisition information 
+
+files_name = 'dat.asc' #Has be be .asc file
+
+# =============================================================================
+# Don't change anything below here!
+# =============================================================================
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import numpy as np
+
+
+
+imp = pd.read_csv(files_name, sep = '\t', skiprows = 26, header = None)
+
+x = imp[0]
+cmap = cm.rainbow(np.linspace(0,1,120))
+for j in range(number_of_samples):
+    data_set = x
+    
+    for i in range(1 + j, len(imp.T) - 2, number_of_samples):
+        data_set = np.vstack([data_set, imp[i]])
+    
+    data_set = pd.DataFrame(data_set.T)
+    data_set.to_csv(str(j + 1) + '.csv', index = None, sep = ';')
+    
+    plt.figure(1,(7,7))
+    for i in range(1, 120):
+        plt.plot(data_set[0], data_set[i], color = cmap[i])
+    plt.show()
+    
+    
+
