@@ -2,8 +2,8 @@
 """
 Author: Andy Sardjan
 Date: 19-02-2019
-Goal: Converts (wavenumber, intensity) lists to spectra, which can be
-opened in spectrogrpyh. 
+Goal: Converts DFT calculated Raman/IR data (wavenumber, intensity) 
+to spectra, which can be opened in spectrogrpyh. 
 """
 # =============================================================================
 # Files and packges to import, global variables
@@ -11,7 +11,7 @@ opened in spectrogrpyh.
 import pandas as pd
 import numpy as np
 
-inputfile_name = 'input.txt'
+inputfile_name = 'input.txt' #inputfile has to have (wavenumbers,intensities)
 outputfile_name = 'spectrum.txt'
 frequency_scaling_factor = 1.0 #can be obtained from trying
 broadening = 20 #in cm-1, FWHM
