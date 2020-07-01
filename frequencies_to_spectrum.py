@@ -13,7 +13,7 @@ import numpy as np
 
 inputfile_name = 'input.txt' #inputfile has to have (wavenumbers,intensities)
 outputfile_name = 'spectrum.txt'
-frequency_scaling_factor = 1.0 #can be obtained from trying
+frequency_scaling_factor = 1.0 
 broadening = 20 #in cm-1, FWHM
 number_of_points = 2000 #on the x-axis
 lower_lim_x = 0 # in cm-1
