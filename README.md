@@ -4,18 +4,20 @@ The goal of this python program is to parse through the output files of orca (an
 Extracting hessian, normal modes and polarizability derivatives from .hess file
 For calculating the raman polarizability tensor (when i figure out how)
 
-Additionally serves to save some handy scripts i have inluding:
-compress.py (which compresses the HUGE qchem output files with SF-TD-DFT optimization)
+Todo:
 SMILES to orca calculation scripts (to add)
 
+
+
+# Currently works:
+## compress.py 
+which compresses the HUGE qchem output files with SF-TD-DFT optimization
+## hessian.py
+which extracts the hessian, normal modes and polarizability derivatives from .hess files
+
+
+
+all orca scripts assume:
 Orca version 5.0.3
-
-Currently works:
-
-
-
-
-
-
 
 pip install --upgrade https://github.com/jkbr/httpie/tarball/master
