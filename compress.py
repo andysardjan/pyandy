@@ -31,25 +31,25 @@ else:
 
 with open(file_name) as file:  
     print('opening job.out')
-	output = []
-	for i in file:
-		if 'amplitude = ' in i:
-			S = i.split('=')[1]
-			S = S.strip('alpha\n').strip('beta\n')
-			S = float(S)
-			S = np.abs(S)
+    output = []
+    for i in file:
+        if 'amplitude = ' in i:
+            S = i.split('=')[1]
+            S = S.strip('alpha\n').strip('beta\n')
+            S = float(S)
+            S = np.abs(S)
 
-			if S > 0.05: #ignore when the amplitude is too small
-				output.append(i)
+            if S > 0.05: #ignore when the amplitude is too small
+                output.append(i)
 
-		else:
-			output.append(i)
+        else:
+            output.append(i)
 			
 
 with open('output.out', 'w') as file:
     print('Writing output.out')
-	for i in output:
-		file.write(i)
+    for i in output:
+        file.write(i)
 
 print('Done Writing output.out')
 print('renaming .mo files to .molden')
