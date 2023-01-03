@@ -1,16 +1,36 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Dec  7 11:00:16 2022
+#!/apps/haswell/software/Anaconda3/2022.10/bin/python
 
-@author: Andy
+"""
+2022-01-03
+
+Notes:
+    
+Changes:
+    added shebang for anaconda on peregrine
+
+
+To do:
+    Maybe make diagrams of the pol_tensor with respect to the molecule
 """
 
 import numpy as np 
 import os
+import sys
+
 pol_der = []
 
 
-with open('job.hess') as file:
+
+'make file_name the first argument or job.out when none given'
+if len(sys.argv) > 1:
+    file_name = sys.argv[1]
+else:
+    file_name = 'job.hess'
+ 
+    
+# file_name = 'example_file/job.hess'
+
+with open(file_name) as file:
     while 1:
         line = file.readline()
         
@@ -72,7 +92,7 @@ with open('job.hess') as file:
             # line = line.split(' ')
             # line = [int(i) for i in line]
             n = int(line)
-            
+            m = n
             while 1:
                 line = file.readline()
                 
@@ -100,25 +120,13 @@ with open('job.hess') as file:
 
             hessian = final            
 
+np.save('hessian.npy', hessian)
+np.save('nmodes.npy', a_nmodes)
+np.save('pol_der.npy', pol_der)
 
-            # a_nmodes = a_nmodes.T
-            # first = a_nmodes[:,:n]
-            # for i in range(1, n//5 + 1):
-            #     new = a_nmodes[:,i*n:(i+1)*n]
-            #     first = np.concatenate([first, new])
-            # final = first[0:-to_remove]
-            # print(final)
+
+# if __name__ == "__main__":
     
-# lines = np.array(lines)
-
-# print(lines)
-
-
-
-
-
-
-
 
 
 
@@ -129,53 +137,53 @@ with open('job.hess') as file:
 # rtensors = np.matmul(rtensors, nmodes )
 # print(rtensors)
 
-for mode in pol_der:
-    rT = np.zeros(shape = (3,3))
-    rT[0,0] = mode[0]
-    rT[1,1] = mode[1]
-    rT[2,2] = mode[2]
-    rT[0,1] = mode[3]
-    rT[0,2] = mode[4]
-    rT[1,2] = mode[5]
+'calculate raman activities, but they are wrong somehow'
+# for mode in pol_der:
+#     rT = np.zeros(shape = (3,3))
+#     rT[0,0] = mode[0]
+#     rT[1,1] = mode[1]
+#     rT[2,2] = mode[2]
+#     rT[0,1] = mode[3]
+#     rT[0,2] = mode[4]
+#     rT[1,2] = mode[5]
     
     
     
     
     
-    ap = rT.diagonal().sum()/3
-    gamma2 = 1/2 * ((rT[0,0] - rT[1,1])**2 + (rT[0,0] - rT[2,2])**2 + 
-                 (rT[1,1] - rT[2,2])**2 + 6 * (rT[1,2]**2 + rT[0,2] **2 
-                                               + rT[0, 1]**2) )
+#     ap = rT.diagonal().sum()/3
+#     gamma2 = 1/2 * ((rT[0,0] - rT[1,1])**2 + (rT[0,0] - rT[2,2])**2 + 
+#                  (rT[1,1] - rT[2,2])**2 + 6 * (rT[1,2]**2 + rT[0,2] **2 
+#                                                + rT[0, 1]**2) )
  
-    S = 45 * ap**2 + 7 * gamma2 
-    if S < 10E-7:
-        dep = 3 
-    else:
-        dep = 3 * gamma2 / (45 * ap**2 + 4 * gamma2)
+#     S = 45 * ap**2 + 7 * gamma2 
+#     if S < 10E-7:
+#         dep = 3 
+#     else:
+#         dep = 3 * gamma2 / (45 * ap**2 + 4 * gamma2)
     
-    print(S)
-    # print(dep)
-    # print(dep)
+#     print(S)
+
     
     
-0              
-0              
-0              
-0              
-0              
-0              
-2.85859        
-2.878364       
-4.099049       
-0.002014       
-0.002409       
-6.619363       
-8.106377       
-8.078048       
-65.066993      
-168.902758     
-62.472966      
-62.602741      
+# 0              
+# 0              
+# 0              
+# 0              
+# 0              
+# 0              
+# 2.85859        
+# 2.878364       
+# 4.099049       
+# 0.002014       
+# 0.002409       
+# 6.619363       
+# 8.106377       
+# 8.078048       
+# 65.066993      
+# 168.902758     
+# 62.472966      
+# 62.602741      
 
 
 

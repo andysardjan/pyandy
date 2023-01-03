@@ -1,9 +1,14 @@
+#!/apps/haswell/software/Anaconda3/2022.10/bin/python
 
 """
-Author: Andy Sardjan
-Date: 19-02-2019
-Goal: Converts DFT calculated Raman/IR data (wavenumber, intensity) 
-to spectra, which can be opened in spectrogrpyh. 
+2022-01-03
+Notes:
+    old
+Changes:
+
+
+To do:
+    
 """
 # =============================================================================
 # Files and packges to import, global variables

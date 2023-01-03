@@ -1,8 +1,14 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr 27 23:27:26 2020
+#!/apps/haswell/software/Anaconda3/2022.10/bin/python
 
-@author: Andy
+"""
+2022-01-03
+Notes:
+    not sure if this even words :P
+Changes:
+
+
+To do:
+
 """
 
 
