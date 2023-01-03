@@ -4,6 +4,9 @@ The goal of this python program is to parse through the output files of orca (an
 Extracting hessian, normal modes and polarizability derivatives from .hess file
 For calculating the raman polarizability tensor (when i figure out how)
 
+Additionally serves to save some handy scripts i have inluding:
+compress.py (which compresses the HUGE qchem output files with SF-TD-DFT optimization)
+SMILES to orca calculation scripts (to add)
 
 Orca version 5.0.3
 
