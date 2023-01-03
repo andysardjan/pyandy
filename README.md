@@ -1,2 +1,8 @@
-#Frequencies to spectrum
-The goal of this python script is to turn output from gaussian or orca files and from those calculate the raman and IR spectra in a file format that can be opened in spectrogrpyh.
+#orca
+
+The goal of this python program is to parse through the output files of orca (and others) to parse through useful information, like Gibbs energy, frequencies, IR intensities, raman activities (and calculating raman intensities). Futhermore calculating spectra from these frequencies and intensities/wavelenghts and f_osc's. Using 
+
+
+
+Currently works:
+
